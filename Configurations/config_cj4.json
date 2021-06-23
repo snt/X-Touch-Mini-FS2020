@@ -9,6 +9,24 @@
   "encoders": [
     {
       "index": 1,
+      "event_up": "KOHLSMAN_INC",
+      "event_down": "KOHLSMAN_DEC",
+      "event_press": "BAROMETRIC"
+    },
+
+    {
+      "index": 3,
+      "event_up": "AP_VS_VAR_INC",
+      "event_down": "AP_VS_VAR_DEC"
+    },
+
+    {
+      "index": 4,
+      "event_up": "AP_SPD_VAR_INC",
+      "event_down": "AP_SPD_VAR_DEC"
+    },
+    {
+      "index": 5,
       "event_up": "HEADING_BUG_INC",
       "event_down": "HEADING_BUG_DEC",
       "event_press": {
@@ -18,40 +36,9 @@
       }
     },
     {
-      "index": 2,
-      "event_up": "KOHLSMAN_INC",
-      "event_down": "KOHLSMAN_DEC",
-      "event_press": "BAROMETRIC"
-    },
-    {
-      "index": 3,
+      "index": 6,
       "event_up": "AP_ALT_VAR_INC",
       "event_down": "AP_ALT_VAR_DEC"
-    },
-    {
-      "index": 4,
-      "event_up": "AP_SPD_VAR_INC",
-      "event_down": "AP_SPD_VAR_DEC",
-      "alternate_event_up": "AP_VS_VAR_INC",
-      "alternate_event_down": "AP_VS_VAR_DEC"
-    },
-    {
-      "index": 5,
-      "event_up": "COM_RADIO_WHOLE_INC",
-      "event_down": "COM_RADIO_WHOLE_DEC",
-      "alternate_event_up": "COM_RADIO_FRACT_INC",
-      "alternate_event_down": "COM_RADIO_FRACT_DEC",
-      "event_short_press": "{alternate}",
-      "event_long_press": "COM_STBY_RADIO_SWAP"
-    },
-    {
-      "index": 6,
-      "event_up": "NAV1_RADIO_WHOLE_INC",
-      "event_down": "NAV1_RADIO_WHOLE_DEC",
-      "alternate_event_up": "NAV1_RADIO_FRACT_INC",
-      "alternate_event_down": "NAV1_RADIO_FRACT_DEC",
-      "event_short_press": "{alternate}",
-      "event_long_press": "NAV1_RADIO_SWAP"
     },
     {
       "index": 7,
@@ -59,104 +46,103 @@
       "event_down": { "event": "MobiFlight.Generic_Upr_MENU_ADV_DEC", "type": "manual", "value": 1 },
       "alternate_event_up": { "event": "MobiFlight.Generic_Upr_Data_INC", "type": "manual", "value": 1 },
       "alternate_event_down": { "event": "MobiFlight.Generic_Upr_Data_DEC", "type": "manual", "value": 1 },
-      "event_short_press": "{alternate}",
-      "event_long_press": { "event": "MobiFlight.Generic_Upr_Data_PUSH", "type": "manual", "value": 1 }
+      "event_long_press": "{alternate}",
+      "event_short_press": { "event": "MobiFlight.Generic_Upr_Data_PUSH", "type": "manual", "value": 1 }
     },
     {
       "index": 8,
       "event_up": { "event": "MobiFlight.Generic_Upr_RANGE_INC", "type": "manual", "value": 1 },
       "event_down": { "event": "MobiFlight.Generic_Upr_RANGE_DEC", "type": "manual", "value": 1 }
+    },
+
+    {
+      "index": 15,
+      "event_up": { "event": "MobiFlight.Generic_Lwr_MENU_ADV_INC", "type": "manual", "value": 1 },
+      "event_down": { "event": "MobiFlight.Generic_Lwr_MENU_ADV_DEC", "type": "manual", "value": 1 },
+      "alternate_event_up": { "event": "MobiFlight.Generic_Lwr_Data_INC", "type": "manual", "value": 1 },
+      "alternate_event_down": { "event": "MobiFlight.Generic_Lwr_Data_DEC", "type": "manual", "value": 1 },
+      "event_long_press": "{alternate}",
+      "event_short_press": { "event": "MobiFlight.Generic_Lwr_Data_PUSH", "type": "manual", "value": 1 }
     }
+
   ],
   "buttons": [
+
     {
-      "index": 1,
+      "index": 2,
       "event_press": "TOGGLE_FLIGHT_DIRECTOR",
       "simvar_led": "AUTOPILOT_FLIGHT_DIRECTOR_ACTIVE"
     },
-    {
-      "index": 2,
-      "event_press": { "event": "MobiFlight.WT_CJ4_AP_HDG_PRESSED", "type": "manual", "value": 1 },
-      "simvar_led": "AUTOPILOT_HEADING_LOCK"
-    },
+
     {
       "index": 3,
-      "event_press": "AP_ALT_HOLD",
-      "simvar_led": "AUTOPILOT_ALTITUDE_LOCK"
-    },
-    {
-      "index": 4,
       "event_press": { "event": "MobiFlight.WT_CJ4_AP_VS_PRESSED", "type": "manual", "value": 1 },
       "simvar_led": "AUTOPILOT_VERTICAL_HOLD"
     },
+
+    {
+      "index": 4,
+      "event_press": { "event": "MobiFlight.WT_CJ4_AP_FLC_PRESSED", "type": "manual", "value": 1 },
+      "simvar_led": "AUTOPILOT_FLIGHT_LEVEL_CHANGE"
+    },
+
     {
       "index": 5,
-      "event_press": { "event": "MobiFlight.WT_CJ4_AP_APPR_PRESSED", "type": "manual", "value": 1 },
-      "simvar_led": "AUTOPILOT_APPROACH_HOLD"
+      "event_press": { "event": "MobiFlight.WT_CJ4_AP_HDG_PRESSED", "type": "manual", "value": 1 },
+      "simvar_led": "AUTOPILOT_HEADING_LOCK"
     },
+
     {
       "index": 6,
-      "event_press": { "event": "MobiFlight.Generic_Upr_Push_FRMT", "type": "manual", "value": 1 }
+      "event_press": { "event": "MobiFlight.WT_CJ4_AP_ALT_PRESSED", "type": "manual", "value": 1 },
+      "simvar_led": "AUTOPILOT_ALTITUDE_LOCK"
     },
+
     {
       "index": 7,
-      "event_press": { "event": "MobiFlight.Generic_Upr_Push_TERR_WX", "type": "manual", "value": 1 }
+      "event_press": "YAW_DAMPER_TOGGLE",
+      "simvar_led": "AUTOPILOT_YAW_DAMPER"
     },
+
     {
       "index": 8,
-      "event_press": "FLAPS_DECR"
-    },
-    {
-      "index": 9,
       "event_press": "AP_MASTER",
       "simvar_led": "AUTOPILOT_MASTER"
     },
-    {
-      "index": 10,
-      "event_press": { "event": "MobiFlight.WT_CJ4_AP_NAV_PRESSED", "type": "manual", "value": 1 },
-      "simvar_led": "AUTOPILOT_NAV1_LOCK"
-    },
+
     {
       "index": 11,
       "event_press": { "event": "MobiFlight.WT_CJ4_AP_VNAV_PRESSED", "type": "manual", "value": 1 },
       "simvar_led": "AUTOPILOT_VERTICAL_HOLD"
     },
+
     {
       "index": 12,
-      "event_press": { "event": "MobiFlight.WT_CJ4_AP_FLC_PRESSED", "type": "manual", "value": 1 },
-      "simvar_led": "AUTOPILOT_FLIGHT_LEVEL_CHANGE"
+      "event_press": { "event": "MobiFlight.WT_CJ4_AP_NAV_PRESSED", "type": "manual", "value": 1 },
+      "simvar_led": "AUTOPILOT_NAV1_LOCK"
     },
-    {
-      "index": 13,
-      "event_press": "YAW_DAMPER_TOGGLE"
-    },
+
     {
       "index": 14,
-      "event_press": "TOGGLE_MASTER_BATTERY"
+      "event_press": { "event": "MobiFlight.WT_CJ4_AP_APPR_PRESSED", "type": "manual", "value": 1 },
+      "simvar_led": "AUTOPILOT_APPROACH_HOLD"
     },
     {
       "index": 15,
-      "event_press": "GEAR_TOGGLE"
-    },
-    {
-      "index": 16,
-      "event_press": "FLAPS_INCR"
+      "event_press": { "event": "MobiFlight.WT_CJ4_AP_BC_PRESSED", "type": "manual", "value": 1 },
+      "simvar_led": "AUTOPILOT_BACKCOURSE_HOLD"
     }
+
   ],
   "faders": [
     {
       "index": 1,
       "event_change": "SPOILERS_SET",
-      "min_value": 0,
-      "max_value": 16383
+      "min_value": 16383,
+      "max_value": 0
     }
   ],
   "triggers": [
-    {
-      "trigger_type": "condition-file",
-      "simvar": "AUTOPILOT_VERTICAL_HOLD",
-      "condition": "Functions/Generic/ap-spd-vs-encoder-switcher.jinja2"
-    },
     {
       "trigger_type": "condition-file",
       "simvar": "AUTOPILOT_HEADING_LOCK_DIR",
@@ -164,64 +150,23 @@
     },
     {
       "trigger_type": "condition-file",
-      "simvar": "GEAR_POSITION",
-      "condition": "Functions/Generic/gear-position-sync.jinja2"
-    },
-    {
-      "trigger_type": "condition-file",
-      "simvar": "FLAPS_HANDLE_INDEX",
-      "condition": "Functions/Generic/flaps-position-sync.jinja2"
-    },
-    {
-      "trigger_type": "condition-file",
-      "simvar": "GEAR_POSITION",
-      "condition": "Functions/Generic/flaps-position-sync.jinja2"
-    },
-    {
-      "trigger_type": "condition-file",
-      "simvar": "GEAR_POSITION",
-      "condition": "Functions/Generic/yd-active-sync.jinja2"
-    },
-    {
-      "trigger_type": "condition-file",
       "simvar": "AUTOPILOT_YAW_DAMPER",
       "condition": "Functions/Generic/yd-active-sync.jinja2"
-    },
-    {
-      "trigger_type": "condition-file",
-      "simvar": "ELECTRICAL_BATTERY_LOAD",
-      "condition": "Functions/CJ4/batt-load-sync.jinja2"
     }
   ],
   "initialization": {
     "global_variables": [
       {
         "name": "HEADING_ENC_IDX",
-        "value": 1
+        "value": 5
       },
       {
         "name": "AP_SPD_ENC_IDX",
         "value": 4
       },
       {
-        "name": "FLAPS_UP_BUT_IDX",
-        "value": 8
-      },
-      {
         "name": "YD_BUT_IDX",
-        "value": 13
-      },
-      {
-        "name": "BATT_BUT_IDX",
-        "value": 14
-      },
-      {
-        "name": "GEAR_BUT_IDX",
-        "value": 15
-      },
-      {
-        "name": "FLAPS_DN_BUT_IDX",
-        "value": 16
+        "value": 7
       }
     ]
   }

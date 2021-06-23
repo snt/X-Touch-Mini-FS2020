@@ -14,6 +14,7 @@ Download the zip, extract, run the exe. In case you want to modify the code foll
 | -------------------------------------------------- | -------- |  
 | [![Download](https://img.shields.io/badge/Download-.zip-blue)](https://github.com/maartentamboer/X-Touch-Mini-FS2020/releases/latest/download/X-Touch-Mini-FS2020.zip) | See below |  
 
+You also need [MobiFlight](https://www.mobiflight.com/en/index.html) for some functions to work.
 
 # Configuration
 Modify the files in the Configuration folder to change assignments.
