@@ -1,0 +1,155 @@
+{
+    "$schema": "./config.schema.json",
+    "version": {
+        "major": 1,
+        "minor": 0,
+        "patch": 0
+    },
+    "encoders": [
+        {
+            "index": 1,
+            "event_up": "HEADING_BUG_INC",
+            "event_down": "HEADING_BUG_DEC",
+            "event_press": {
+                "type": "condition-file",
+                "event": "Functions/Generic/heading-bug-sync.jinja2",
+                "description": "Set heading bug to current heading"
+            }
+        },
+        {
+            "index": 2,
+            "event_up": "KOHLSMAN_INC",
+            "event_down": "KOHLSMAN_DEC",
+            "event_press": "BAROMETRIC"
+        },
+        {
+            "index": 3,
+            "event_up": "COM_RADIO_WHOLE_INC",
+            "event_down": "COM_RADIO_WHOLE_DEC",
+            "alternate_event_up": "COM_RADIO_FRACT_INC",
+            "alternate_event_down": "COM_RADIO_FRACT_DEC",
+            "event_short_press": "{alternate}",
+            "event_long_press": "COM_STBY_RADIO_SWAP"
+        },
+        {
+            "index": 4,
+            "event_up": "NAV1_RADIO_WHOLE_INC",
+            "event_down": "NAV1_RADIO_WHOLE_DEC",
+            "alternate_event_up": "NAV1_RADIO_FRACT_INC",
+            "alternate_event_down": "NAV1_RADIO_FRACT_DEC",
+            "event_short_press": "{alternate}",
+            "event_long_press": "NAV1_RADIO_SWAP"
+        },
+        {
+            "index": 5,
+            "event_up": "AP_SPD_VAR_INC",
+            "event_down": "AP_SPD_VAR_DEC",
+            "alternate_event_up": "AP_VS_VAR_INC",
+            "alternate_event_down": "AP_VS_VAR_DEC"
+        },
+        {
+            "index": 6,
+            "event_up": "AP_ALT_VAR_INC",
+            "event_down": "AP_ALT_VAR_DEC"
+        },
+        {
+            "index": 7
+        },
+        {
+            "index": 8,
+            "event_up": { "event": "MobiFlight.Generic_Upr_RANGE_INC", "type": "manual", "value": 1 },
+            "event_down": { "event": "MobiFlight.Generic_Upr_RANGE_DEC", "type": "manual", "value": 1 }
+              }
+    ],
+    "buttons": [
+        {
+            "index": 1,
+            "event_press": "AP_HDG_HOLD",
+            "simvar_led": "AUTOPILOT_HEADING_LOCK"
+        },
+        {
+            "index": 2,
+            "event_press": "AP_APR_HOLD",
+            "simvar_led": "AUTOPILOT_APPROACH_HOLD"
+        },
+        {
+            "index": 3,
+            "event_press": "AP_MASTER",
+            "simvar_led": "AUTOPILOT_MASTER"
+        },
+
+        {
+            "index": 5,
+            "event_press": "FLIGHT_LEVEL_CHANGE",
+            "simvar_led": "AUTOPILOT_FLIGHT_LEVEL_CHANGE"
+        },
+        {
+            "index": 6,
+            "event_press": "AP_ALT_HOLD",
+            "simvar_led": "AUTOPILOT_ALTITUDE_LOCK"
+        },
+
+
+
+        {
+            "index": 10,
+            "event_press": "AP_NAV1_HOLD",
+            "simvar_led": "AUTOPILOT_NAV1_LOCK"
+        },
+        {
+            "index": 11,
+            "event_press": "TOGGLE_FLIGHT_DIRECTOR",
+            "simvar_led": "AUTOPILOT_FLIGHT_DIRECTOR_ACTIVE"
+        },
+        {
+            "index": 12,
+            "event_press": "YAW_DAMPER_TOGGLE"
+        },
+        {
+            "index": 14,
+            "event_press": "AP_VS_HOLD",
+            "simvar_led": "AUTOPILOT_VERTICAL_HOLD"
+        }
+    ],
+    "faders": [
+        {
+            "index": 1,
+            "event_change": "PROP_PITCH_SET",
+            "min_value": 0,
+            "max_value": 16383
+        }
+    ],
+    "triggers": [
+        {
+            "trigger_type": "condition-file",
+            "simvar": "AUTOPILOT_VERTICAL_HOLD",
+            "condition": "Functions/Generic/ap-spd-vs-encoder-switcher.jinja2"
+        },
+        {
+            "trigger_type": "condition-file",
+            "simvar": "AUTOPILOT_HEADING_LOCK_DIR",
+            "condition": "Functions/Generic/hdg-lock-sync.jinja2"
+        },
+        {
+            "trigger_type": "condition-file",
+            "simvar": "AUTOPILOT_YAW_DAMPER",
+            "condition": "Functions/Generic/yd-active-sync.jinja2"
+        }
+    ],
+    "initialization": {
+        "global_variables": [
+            {
+                "name": "HEADING_ENC_IDX",
+                "value": 1
+            },
+            {
+                "name": "AP_SPD_ENC_IDX",
+                "value": 5
+            },
+            {
+                "name": "YD_BUT_IDX",
+                "value": 12
+            }
+        ]
+    }
+}

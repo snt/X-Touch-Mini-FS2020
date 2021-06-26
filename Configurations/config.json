@@ -12,6 +12,14 @@
     {
       "aircraft_contains": "CRJ",
       "file": "config_crj.json"
+    },
+    {
+      "aircraft_contains": "Asobo XCub",
+      "file": "config_xcub.json"
+    },
+    {
+      "aircraft_contains": "Xcub Kenmore Livery",
+      "file": "config_xcub.json"
     }
   ],
   "midi_input_device": "X-TOUCH MINI 0",
