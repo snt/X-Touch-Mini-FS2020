@@ -1,0 +1,146 @@
+{
+    "$schema": "./config.schema.json",
+    "version": {
+        "major": 1,
+        "minor": 0,
+        "patch": 0
+    },
+    "encoders": [
+        {
+            "index": 1,
+            "event_up": "KOHLSMAN_INC",
+            "event_down": "KOHLSMAN_DEC",
+            "event_press": "BAROMETRIC_STD_PRESSURE"
+        },
+        {
+            "index": 2,
+            "event_up": "HEADING_BUG_INC",
+            "event_down": "HEADING_BUG_DEC",
+            "event_press": {
+                "type": "condition-file",
+                "event": "Functions/Generic/heading-bug-sync.jinja2",
+                "description": "Set heading bug to current heading"
+            }
+        },
+        {
+            "index": 4
+        },
+        {
+            "index": 6,
+            "event_up": "AP_ALT_VAR_INC",
+            "event_down": "AP_ALT_VAR_DEC"
+        },
+        {
+            "index": 8,
+            "event_up": "AP_SPD_VAR_INC",
+            "event_down": "AP_SPD_VAR_DEC",
+            "alternate_event_up": "AP_VS_VAR_INC",
+            "alternate_event_down": "AP_VS_VAR_DEC"
+        }
+    ],
+    "buttons": [
+        {
+            "index": 2,
+            "event_press": "AP_HDG_HOLD",
+            "simvar_led": "AUTOPILOT_HEADING_LOCK"
+        },
+        {
+            "index": 3,
+            "event_press": "AP_APR_HOLD",
+            "simvar_led": "AUTOPILOT_APPROACH_HOLD"
+        },
+        {
+            "index": 4,
+            "event_press": "AP_NAV1_HOLD",
+            "simvar_led": "AUTOPILOT_NAV1_LOCK"
+        },
+        {
+            "index": 5,
+            "event_press": "TOGGLE_FLIGHT_DIRECTOR",
+            "simvar_led": "AUTOPILOT_FLIGHT_DIRECTOR_ACTIVE"
+        },
+        {
+            "index": 6,
+            "event_press": "AP_ALT_HOLD",
+            "simvar_led": "AUTOPILOT_ALTITUDE_LOCK"
+        },
+        {
+            "index": 7,
+            "event_press": "AP_VS_HOLD",
+            "simvar_led": "AUTOPILOT_VERTICAL_HOLD"
+        },
+        {
+            "index": 8,
+            "event_press": "FLIGHT_LEVEL_CHANGE",
+            "simvar_led": "AUTOPILOT_FLIGHT_LEVEL_CHANGE"
+        },
+ 
+
+        {
+            "index": 11,
+            "event_press": "AP_BC_HOLD",
+            "simvar_led": "AUTOPILOT_BACKCOURSE_HOLD"
+        },
+        {
+            "index": 13,
+            "event_press": "AP_MASTER",
+            "simvar_led": "AUTOPILOT_MASTER"
+        },
+        {
+            "index": 14,
+            "event_press": "YAW_DAMPER_TOGGLE",
+            "simvar_led": "AUTOPILOT_YAW_DAMPER"
+        },
+        {
+            "index": 15,
+            "event_press": "GPS_VNAV_BUTTON"
+        },
+        {
+            "index": 16,
+            "event_press": "AP_MANAGED_SPEED_IN_MACH_TOGGLE",
+            "simvar_led": "AUTOPILOT_MANAGED_SPEED_IN_MACH"
+        }
+
+    ],
+    "faders": [
+        {
+            "index": 1,
+            "event_change": "PROP_PITCH_SET",
+            "min_value": 0,
+            "max_value": 16383
+        }
+    ],
+    "triggers": [
+        {
+            "trigger_type": "condition-file",
+            "simvar": "AUTOPILOT_VERTICAL_HOLD",
+            "condition": "Functions/Generic/ap-spd-vs-encoder-switcher.jinja2"
+        },
+        {
+            "trigger_type": "condition-file",
+            "simvar": "AUTOPILOT_HEADING_LOCK_DIR",
+            "condition": "Functions/Generic/hdg-lock-sync.jinja2"
+        },
+        {
+            "trigger_type": "condition-file",
+            "simvar": "AUTOPILOT_YAW_DAMPER",
+            "condition": "Functions/Generic/yd-active-sync.jinja2"
+        }
+    ],
+    "initialization": {
+        "global_variables": [
+            {
+                "name": "HEADING_ENC_IDX",
+                "value": 2
+            },
+            {
+                "name": "AP_SPD_ENC_IDX",
+                "value": 8
+            },
+            {
+                "name": "YD_BUT_IDX",
+                "value": 14
+            }
+        ]
+    }
+}

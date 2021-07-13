@@ -20,6 +20,14 @@
     {
       "aircraft_contains": "Xcub Kenmore Livery",
       "file": "config_xcub.json"
+    },
+    {
+      "aircraft_contains": "DA62 Asobo",
+      "file": "config_da62.json"
+    },
+    {
+      "aircraft_contains": "TBM 930 Asobo",
+      "file": "config_tbm930.json"
     }
   ],
   "midi_input_device": "X-TOUCH MINI 0",
