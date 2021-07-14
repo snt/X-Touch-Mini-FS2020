@@ -23,7 +23,9 @@
             }
         },
         {
-            "index": 4
+            "index": 4,
+            "event_up": "VOR1_OBI_INC",
+            "event_down": "VOR1_OBI_DEC"
         },
         {
             "index": 6,
