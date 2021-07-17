@@ -33,11 +33,16 @@
             "event_down": "AP_ALT_VAR_DEC"
         },
         {
-            "index": 8,
+            "index": 7,
             "event_up": "AP_SPD_VAR_INC",
             "event_down": "AP_SPD_VAR_DEC",
             "alternate_event_up": "AP_VS_VAR_INC",
             "alternate_event_down": "AP_VS_VAR_DEC"
+        },
+        {
+            "index": 8,
+            "event_up": "VOR2_OBI_INC",
+            "event_down": "VOR2_OBI_DEC"
         }
     ],
     "buttons": [
