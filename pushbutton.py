@@ -10,6 +10,7 @@ class PushButton:
         self._led_control_note = self._button_index - 1
         self._on_layer = ActiveLayerIdentifier.A
         self._simvar = None
+        self._mobiflightsimvar = None
         self._event_press = None
         self._event_press_short = None
         self._event_press_long = None
@@ -38,6 +39,10 @@ class PushButton:
     def bind_led_to_simvar(self, simvar: str):
         self._simvar = simvar
 
+    def bind_led_to_mobiflightsimvar(self, simvar: str):
+        self._mobiflightsimvar = simvar
+
+
     def bind_press(self, event):
         self._event_press = event
 
@@ -47,6 +52,14 @@ class PushButton:
     def bind_long_press(self, event):
         self._event_press_long = event
 
+    def reset_configuration(self):
+        self._simvar = None
+        self._mobiflightsimvar = None
+        self._event_press = None
+        self._event_press_short = None
+        self._event_press_long = None
+        self._current_led_value = 0
+
     @property
     def button_note(self):
         return self._receive_data_note
@@ -54,6 +67,10 @@ class PushButton:
     @property
     def bound_simvar(self):
         return self._simvar
+
+    @property
+    def bound_mobiflightsimvar(self):
+        return self._mobiflightsimvar
 
     def on_note_data(self, on: bool):
         print(f"on_note_data BTN: {self._button_index}")
@@ -70,6 +87,12 @@ class PushButton:
                 self._event_press_short()
 
     def on_simvar_data(self, data):
+        if data == 1.0:
+            self.set_led_on_off(True)
+        else:
+            self.set_led_on_off(False)
+
+    def on_mobiflightsimvar_data(self, data):
         if data == 1.0:
             self.set_led_on_off(True)
         else:
