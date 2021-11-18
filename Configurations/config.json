@@ -28,6 +28,18 @@
     {
       "aircraft_contains": "TBM 930 Asobo",
       "file": "config_tbm930.json"
+    },
+    {
+      "aircraft_contains": "TBM 930 01 Livery",
+      "file": "config_tbm930.json"
+    },
+    {
+      "aircraft_contains": "Cessna 208B Grand Caravan EX",
+      "file": "config_c208b.json"
+    },
+    {
+      "aircraft_contains": "Cessna Grand Caravan Global Livery",
+      "file": "config_c208b.json"
     }
   ],
   "midi_input_device": "X-TOUCH MINI 0",
